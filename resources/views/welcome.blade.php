@@ -145,24 +145,24 @@
                         <div class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
                             <h2 class="mr-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
 
-                            <!-- <a href="#" class="text-white js-filter d-inline-block d-lg-none">Filter</a>
-              
-              <div class="filter-wrap">
-                <div class="filter ml-auto" id="filters">
-                  <a href="#" class="active" data-filter="*">All</a>
-                  <a href="#" data-filter=".web">Web</a>
-                  <a href="#" data-filter=".branding">Branding</a>
-                  <a href="#" data-filter=".illustration">Illustration</a>
-                  <a href="#" data-filter=".packaging">Packaging</a>
-                </div>
-              </div> -->
+                            <a href="#" class="text-white js-filter d-inline-block d-lg-none">Filter</a>
+
+                            <div class="filter-wrap">
+                                <div class="filter ml-auto" id="filters">
+                                    <a href="#" class="active" data-filter="*">All</a>
+                                    <a href="#" data-filter=".web">Web</a>
+                                    <a href="#" data-filter=".branding">Branding</a>
+                                    <a href="#" data-filter=".illustration">Illustration</a>
+                                    <a href="#" data-filter=".packaging">Packaging</a>
+                                </div>
+                            </div>
                         </div>
 
 
 
                         <div id="posts" class="row gutter-isotope-item">
                             <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="portfolio-single-1.html"
+                                <a href="images/portfolio-single-1.html"
                                     class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
                                     <div class="overlay">
                                         <span class="wrap-icon icon-link2"></span>
@@ -175,7 +175,7 @@
                                 </a>
                             </div>
                             <div class="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
-                                <a href="portfolio-single-3.html"
+                                <a href="images/portfolio-single-3.html"
                                     class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img"
                                     data-id="3">
                                     <div class="overlay">
@@ -190,7 +190,7 @@
                             </div>
 
                             <div class="item branding packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="portfolio-single-4.html"
+                                <a href="/images/portfolio-single-4.html"
                                     class="portfolio-item isotope-item gsap-reveal-img ajax-load-page" data-id="4">
                                     <div class="overlay">
                                         <span class="wrap-icon icon-link2"></span>
@@ -234,7 +234,7 @@
                             </div>
 
                             <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                                <a href="portfolio-single-2.html"
+                                <a href="images/portfolio-single-2.html"
                                     class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img"
                                     data-id="2">
                                     <div class="overlay">
