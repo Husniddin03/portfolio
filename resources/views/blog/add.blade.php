@@ -3,7 +3,7 @@
     <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-floating mb-3">
-            <input name="title" type="text" class="form-control" id="floatingInput" placeholder="Enter post title!">
+            <input readonly value="{{$post->title}}" name="title" type="text" class="form-control" id="floatingInput" placeholder="Enter post title!">
             @error('title')
                 {{ $message }}
             @enderror

@@ -34,7 +34,7 @@ return new class extends Migration {
         // POST_MEDIAFILES
         Schema::create('post_mediafiles', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->text('url');
             $table->string('type');
             $table->foreignId('content_id')->constrained('contents')->onDelete('cascade');
             $table->timestamps();
@@ -43,7 +43,7 @@ return new class extends Migration {
         // FILES
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->text('url');
             $table->string('type');
             $table->string('title');
             $table->text('content');
