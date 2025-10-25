@@ -11,15 +11,25 @@
                 <h5 class="card-title">{{ $file->title }}</h5>
                 <p class="card-text">{{ $file->content }}</p>
 
-                @if ($file->type === 'image')
+                @if ($file->type == 'image')
                     <img src="{{ asset('storage/' . $file->url) }}" class="img-fluid rounded" style="max-width: 500px;">
-                @elseif($file->type === 'video')
+                @elseif($file->type == 'video')
                     <video controls class="w-100 rounded" style="max-width: 500px;">
                         <source src="{{ asset('storage/' . $file->url) }}" type="video/mp4">
                     </video>
-                @elseif($file->type === 'url')
-                    <div class="ratio ratio-16x9">
-                        {!! $file->url !!}
+                @elseif($file->type == 'url')
+                    <div class="ratio ratio-4x3">
+                        @php
+                            $segments = explode('/', $file->url);
+                            $lastSegment = end($segments);
+                            $videoId = explode('?', $lastSegment)[0];
+                        @endphp
+                        <a href="{{ $file->url }}">
+                            <p>To'liq tomosho qiling</p>
+                            <img class="img-fluid"
+                                src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
+                                alt="Video Thumbnail" />
+                        </a>
                     </div>
                 @endif
 

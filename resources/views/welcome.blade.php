@@ -302,7 +302,7 @@
                 <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="counter-v1 text-center">
                         <span class="number-wrap">
-                            <span class="number number-counter" data-number="100">0</span>
+                            <span class="number number-counter" data-number="95">0</span>
                             <span class="append-text">%</span>
                         </span>
                         <span class="counter-label">Design</span>
@@ -334,7 +334,7 @@
                         </div>
 
                         <div class="testimonial-author-info">
-                            <img src="{{ asset('storage/' . $quote->img) }}" alt="Image">
+                            <img style="height: 90px" src="{{ asset('storage/' . $quote->img) }}" alt="Image">
                             <h3>{{ $quote->name }}</h3>
                             <span class="d-block position">{{ $quote->job }}</span>
                         </div>
@@ -358,16 +358,31 @@
             <div class="row gutter-v4 align-items-stretch">
                 @foreach ($posts as $post)
                     <div class="col-sm-6 col-md-6 col-lg-4 blog-post-entry" data-aos="fade-up" data-aos-delay="100">
-                        <a href="{{route('myblog', $post->id)}}" class="grid-item blog-item w-100 h-100">
+                        <a href="{{ route('myblog', $post->id) }}" class="grid-item blog-item w-100 h-100">
                             <div class="overlay">
                                 <div class="portfolio-item-content">
                                     <h3>{{ $post->title }}</h3>
                                     <p class="post-meta">{{ $post->created_at->diffForHumans() }} <span
-                                            class="small">&bullet;</span> 5 mins read
+                                            class="small">&bullet;</span> {{ $post->views }} marta o'qilgan
                                     </p>
                                 </div>
                             </div>
-                            <img src="images/post_2.jpg" class="lazyload" alt="Image" />
+                            @foreach ($post->contents as $content)
+                                @foreach ($content->mediaFiles as $media)
+                                    @if ($media->type == 'image')
+                                        <img src="{{ asset('storage/' . $media->url) }}" class="lazyload"
+                                            alt="Image" />
+                                    @elseif($media->type == 'url')
+                                        @php
+                                            $segments = explode('/', $media->url);
+                                            $lastSegment = end($segments);
+                                            $videoId = explode('?', $lastSegment)[0];
+                                        @endphp
+                                        <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
+                                            alt="Video Thumbnail" />
+                                    @endif
+                                @endforeach
+                            @endforeach
                         </a>
                     </div>
                 @endforeach
@@ -389,17 +404,11 @@
             <div class="row justify-content-between">
 
                 <div class="col-md-6">
-                    <form method="post" class="form-outline-style-v1" id="contactForm">
+                    <form method="post" action="{{ route('message') }}" class="form-outline-style-v1"
+                        id="">
+                        @csrf
                         <div class="form-group row mb-0">
 
-                            <div class="col-lg-6 form-group gsap-reveal">
-                                <label for="name">Name</label>
-                                <input name="name" type="text" class="form-control" id="name">
-                            </div>
-                            <div class="col-lg-6 form-group gsap-reveal">
-                                <label for="email">Email</label>
-                                <input name="email" type="email" class="form-control" id="email">
-                            </div>
                             <div class="col-lg-12 form-group gsap-reveal">
                                 <label for="message">Write your message...</label>
                                 <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>

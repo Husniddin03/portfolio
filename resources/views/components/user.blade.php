@@ -10,12 +10,12 @@
     <meta name="keywords" content="html, css, javascript, jquery">
     <meta name="author" content="">
 
-    <link rel="stylesheet" href="{{asset('css/vendor/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/vendor/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/vendor/animate.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/vendor/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('css/vendor/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/vendor/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/jquery.fancybox.min.css') }}">
 
 
     <!-- Theme Style -->
@@ -58,39 +58,43 @@
                         <div class="col-md-5 text-right">
                             <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
                                 <li class="has-children">
-                                    <a href="#home-section" class="nav-link">Home</a>
+                                    <a href="{{ route('welcome') }}#home-section" class="nav-link">Home</a>
                                     <ul class="dropdown">
-                                        <li>
-                                            <a href="index.html">Hero Image BG</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-video.html">Video BG</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-hero-slider.html">Hero Slider</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-sidebar-menu.html">Sidebar Menu</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-right-menu.html">Right Menu</a>
-                                        </li>
+                                        @guest
+                                            <li>
+                                                <a href="{{ route('register') }}">Ro'yxatdan o'tish</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('login') }}">Kirish</a>
+                                            </li>
+                                        @endguest
+                                        @auth
+
+                                            <li>
+                                                <a>
+                                                    <form action="{{ route('logout') }}" method="post">
+                                                        @csrf
+                                                        <button type="submit">Chiqish</button>
+                                                    </form>
+                                                </a>
+                                            </li>
+                                        @endauth
                                     </ul>
                                 </li>
-                                <li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
-                                <li><a href="#about-section" class="nav-link">About</a></li>
-                                <li><a href="#services-section" class="nav-link">Services</a></li>
+                                <li><a href="{{ route('welcome') }}#portfolio-section" class="nav-link">Portfolio</a></li>
+                                <li><a href="{{ route('welcome') }}#about-section" class="nav-link">About</a></li>
+                                <li><a href="{{ route('welcome') }}#services-section" class="nav-link">Services</a></li>
                             </ul>
                         </div>
                         <div class="site-logo pos-absolute">
-                            <a href="index.html" class="unslate_co--site-logo">Unfold<span>.</span></a>
+                            <a href="{{ route('welcome') }}" class="unslate_co--site-logo">Husniddin<span>.</span></a>
                         </div>
                         <div class="col-md-5 text-right text-lg-left">
                             <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                                <li><a href="#skills-section" class="nav-link">Skills</a></li>
-                                <li><a href="#testimonial-section" class="nav-link">Testimonial</a></li>
-                                <li><a href="#journal-section" class="nav-link">Journal</a></li>
-                                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                                <li><a href="{{ route('welcome') }}#skills-section" class="nav-link">Skills</a></li>
+                                <li><a href="{{ route('welcome') }}#testimonial-section" class="nav-link">Testimonial</a></li>
+                                <li><a href="{{ route('welcome') }}#journal-section" class="nav-link">Journal</a></li>
+                                <li><a href="{{ route('welcome') }}#contact-section" class="nav-link">Contact</a></li>
                             </ul>
 
                             <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">

@@ -999,6 +999,7 @@ figure.dotted-bg {
     position: relative; }
     .testimonial-v1 .testimonial-author-info img {
       width: 90px;
+      height: 90px;
       margin: 0 auto 30px auto;
       border-radius: 50%; }
     .testimonial-v1 .testimonial-author-info h3 {

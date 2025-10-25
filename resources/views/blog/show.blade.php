@@ -2,7 +2,7 @@
     <div>
         <h1>{{ $post->title }}</h1>
         @foreach ($post->contents as $content)
-            <p>{{ $content->content }}</p>
+            <p>{!! $content->content !!}</p>
             @foreach ($content->mediaFiles as $file)
                 @if ($file->type === 'image')
                     <img src="{{ asset('storage/' . $file->url) }}" class="img-fluid rounded mb-3" alt="Post image"
@@ -14,7 +14,20 @@
                     </video>
                 @elseif($file->type === 'url')
                     <div style="width: 50%" class="ratio ratio-16x9 mb-3">
-                        {!! $file->url !!}
+                        @php
+                            $segments = explode('/', $file->url);
+                            $lastSegment = end($segments);
+                            $videoId = explode('?', $lastSegment)[0];
+                        @endphp
+
+                        <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+                            <a href="{{ $file->url }}" class="portfolio-item isotope-item gsap-reveal-img"
+                                data-fancybox="gallery" data-caption="Showreel 2019">
+                                <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
+                                    class="lazyload img-fluid" alt="Video Thumbnail" />
+                            </a>
+                        </div>
+
                     </div>
                 @endif
             @endforeach
