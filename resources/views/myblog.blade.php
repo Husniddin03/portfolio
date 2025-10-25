@@ -71,7 +71,7 @@
 
 
                     <div class="pt-5">
-                        <h3 class="mb-5">{{$post->comments->count()}} Comments</h3>
+                        <h3 class="mb-5">{{$post->comments->count()}} Izohlar</h3>
                         <ul class="comment-list">
                             @foreach ($post->comments->reverse() as $comment)
                                 <li class="comment">
@@ -89,16 +89,16 @@
                         <!-- END comment-list -->
 
                         <div class="comment-form-wrap pt-5">
-                            <h3 class="mb-5">Leave a comment</h3>
+                            <h3 class="mb-5">Izoh qoldiring</h3>
                             <form action="{{route('addComment', $post->id)}}" method="post" class="">
                                 @csrf
 
                                 <div class="form-group">
-                                    <label for="message">Message</label>
+                                    <label for="message">Izoh</label>
                                     <textarea name="message" id="message" cols="30" rows="5" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" value="Post Comment" class="btn btn-primary btn-md">Post Comment</button>
+                                    <button type="submit" value="Post Comment" class="btn btn-primary btn-md">Izohni yuborish</button>
                                 </div>
 
                             </form>

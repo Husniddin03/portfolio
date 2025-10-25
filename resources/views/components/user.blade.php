@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Unfold &mdash; A onepage portfolio HTML template by Colorlib</title>
+    <title>Husniddin &mdash; Shaxsiy sahifa</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -58,7 +58,7 @@
                         <div class="col-md-5 text-right">
                             <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
                                 <li class="has-children">
-                                    <a href="{{ route('welcome') }}#home-section" class="nav-link">Home</a>
+                                    <a href="{{ route('welcome') }}#home-section" class="nav-link">Asosiy</a>
                                     <ul class="dropdown">
                                         @guest
                                             <li>
@@ -82,8 +82,8 @@
                                     </ul>
                                 </li>
                                 <li><a href="{{ route('welcome') }}#portfolio-section" class="nav-link">Portfolio</a></li>
-                                <li><a href="{{ route('welcome') }}#about-section" class="nav-link">About</a></li>
-                                <li><a href="{{ route('welcome') }}#services-section" class="nav-link">Services</a></li>
+                                <li><a href="{{ route('welcome') }}#about-section" class="nav-link">Haqimda</a></li>
+                                <li><a href="{{ route('welcome') }}#services-section" class="nav-link">Xizmatlar</a></li>
                             </ul>
                         </div>
                         <div class="site-logo pos-absolute">
@@ -91,10 +91,10 @@
                         </div>
                         <div class="col-md-5 text-right text-lg-left">
                             <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                                <li><a href="{{ route('welcome') }}#skills-section" class="nav-link">Skills</a></li>
-                                <li><a href="{{ route('welcome') }}#testimonial-section" class="nav-link">Testimonial</a></li>
-                                <li><a href="{{ route('welcome') }}#journal-section" class="nav-link">Journal</a></li>
-                                <li><a href="{{ route('welcome') }}#contact-section" class="nav-link">Contact</a></li>
+                                <li><a href="{{ route('welcome') }}#skills-section" class="nav-link">Mahoratlar</a></li>
+                                <li><a href="{{ route('welcome') }}#testimonial-section" class="nav-link">Iqtiboslar</a></li>
+                                <li><a href="{{ route('welcome') }}#journal-section" class="nav-link">Postlar</a></li>
+                                <li><a href="{{ route('welcome') }}#contact-section" class="nav-link">Kontact</a></li>
                             </ul>
 
                             <ul class="site-nav-ul-none-onepage text-right d-inline-block d-lg-none">
@@ -114,15 +114,12 @@
                     <div class="row justify-content-center">
                         <div class="col-md-7">
 
-                            <div class="footer-site-logo"><a href="#">Unfold<span>.</span></a></div>
+                            <div class="footer-site-logo"><a href="#">Husniddin<span>.</span></a></div>
 
                             <ul class="footer-site-social">
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Instagram</a></li>
-                                <li><a href="#">Dribbble</a></li>
-                                <li><a href="#">Behance</a></li>
-                            </ul>
+                                <li><a href="https://t.me/matritsachi">Telegram</a></li>
+                                <li><a href="https://www.youtube.com/@Husniddin.Gafforov">YouTube</a></li>
+                                <li><a href="mailto:husniddin13124041@gmail.com">Email</a></li>
 
                             <p class="site-copyright">
 

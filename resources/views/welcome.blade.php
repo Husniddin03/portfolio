@@ -4,9 +4,9 @@
             <div class="row align-items-center">
 
                 <div class="col-md-7 mx-auto text-center">
-                    <h1 class="heading gsap-reveal-hero">Unfold</h1>
-                    <h2 class="subheading gsap-reveal-hero">I’m Glenn Chapman Hoyer A Product Designer Based In
-                        San Francisco</h2>
+                    <h1 class="heading gsap-reveal-hero">Husniddin</h1>
+                    <h2 class="subheading gsap-reveal-hero">Men Full Stack web va Telegram bot
+                        yaratuvchi dasturchima</h2>
                 </div>
 
             </div>
@@ -57,30 +57,17 @@
 
             <div id="posts" class="row gutter-isotope-item">
                 @foreach ($files as $file)
-                    {{-- <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                        <a href="portfolio-single-1.html"
-                            class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
-                            <div class="overlay">
-                                <span class="wrap-icon icon-link2"></span>
-                                <div class="portfolio-item-content">
-                                    <h3>Shoe Rebranding</h3>
-                                    <p>web, branding</p>
-                                </div>
-                            </div>
-                            <img src="images/work_1_md.jpg" class="lazyload  img-fluid" alt="Images" />
-                        </a>
-                    </div> --}}
                     @if ($file->type == 'image')
                         <div class="item web packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
 
                             <a href="{{ asset('storage/' . $file->url) }}"
                                 class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery"
-                                data-caption="Watch">
+                                data-caption="{{ $file->title }}">
                                 <div class="overlay">
                                     <span class="wrap-icon icon-photo2"></span>
                                     <div class="portfolio-item-content">
-                                        <h3>Watch</h3>
-                                        <p>web, packaging</p>
+                                        <h3>{{ $file->title }}</h3>
+                                        <p>{{ $file->content }}</p>
                                     </div>
                                 </div>
                                 <img src="{{ asset('storage/' . $file->url) }}" class="lazyload  img-fluid"
@@ -92,12 +79,12 @@
                         <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
                             <a href="https://www.youtube.com/watch?v=mwtbEGNABWU"
                                 class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery"
-                                data-caption="Showreel 2019">
+                                data-caption="{{ $file->title }}">
                                 <div class="overlay">
                                     <span class="wrap-icon icon-play_circle_filled"></span>
                                     <div class="portfolio-item-content">
-                                        <h3>Showreel 2019</h3>
-                                        <p>web, branding</p>
+                                        <h3>{{ $file->title }}</h3>
+                                        <p>{{ $file->content }}</p>
                                     </div>
                                 </div>
                                 <img src="images/work_8_md.jpg" class="lazyload  img-fluid" alt="Images" />
@@ -112,12 +99,12 @@
 
                         <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
                             <a href="{{ $file->url }}" class="portfolio-item isotope-item gsap-reveal-img"
-                                data-fancybox="gallery" data-caption="Showreel 2019">
+                                data-fancybox="gallery" data-caption="{{ $file->title }}">
                                 <div class="overlay">
                                     <span class="wrap-icon icon-play_circle_filled"></span>
                                     <div class="portfolio-item-content">
-                                        <h3>Showreel 2019</h3>
-                                        <p>web, branding</p>
+                                        <h3>{{ $file->title }}</h3><br>
+                                        <p>{{ $file->content }}</p>
                                     </div>
                                 </div>
 
@@ -159,7 +146,7 @@
         <div class="container">
 
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">About Me</span></h2>
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Men haqimda</span></h2>
                 <span class="gsap-reveal">
                     <img src="images/divider.png" alt="divider" width="76">
                 </span>
@@ -173,15 +160,36 @@
                     </figure>
                 </div>
                 <div class="col-lg-4 pr-lg-5">
-                    <h3 class="mb-4 heading-h3"><span class="gsap-reveal">We can make it together</span></h3>
-                    <p class="lead gsap-reveal">Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there <a href="#">live the blind</a> texts. </p>
-                    <p class="mb-4 gsap-reveal">A small river named Duden flows by their place and supplies it
-                        with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                        sentences fly into your mouth.</p>
-                    <p class="gsap-reveal"><a href="#" class="btn btn-outline-pill btn-custom-light">Download
-                            my
-                            CV</a></p>
+                    <h3 class="mb-4 heading-h3">
+                        <span class="gsap-reveal">Umumiy va qisqacha men haqimda</span>
+                    </h3>
+
+                    <p class="lead gsap-reveal">
+                        Men IT sohasiga katta qiziqish bilan yondashaman va har doim o‘rganish,
+                        o‘sish hamda yangiliklar yaratishga intilaman. Texnologiyalar yordamida
+                        hayotni yanada qulay va foydali qilish — mening asosiy maqsadim.
+                    </p>
+
+                    <p class="mb-4 gsap-reveal">
+                        Dasturlash sohasida bir necha yillik tajribaga egaman. Asosan
+                        <strong>PHP, Laravel, MySQL, HTML, CSS</strong> va
+                        <strong>JavaScript</strong> bilan ishlayman. Shuningdek,
+                        zamonaviy, tezkor va foydalanuvchiga qulay veb-ilovalar va telegram botlar ishlab chiqishga
+                        ixtisoslashganman.
+                    </p>
+
+                    <p class="mb-4 gsap-reveal">
+                        Men uchun har bir loyiha — bu yangi imkoniyat, yangi g‘oya va ijodiy yondashuvni
+                        namoyon etish imkonidir. Agar sizga ishonchli va ijodkor dasturchi kerak bo‘lsa,
+                        birgalikda ajoyib natijalarga erishishimiz mumkin.
+                    </p>
+
+                    <p class="gsap-reveal">
+                        <a href="https://docs.google.com/document/d/153zJtWASPU034z5K3lLcyytxeV_crKpBp5JE3HKv0qM/edit?usp=sharing"
+                            target="_blank" class="btn btn-outline-pill btn-custom-light">
+                            Mening CV’mni ko‘rish
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -191,8 +199,12 @@
         <div class="container">
 
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Services</span></h2>
-                <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
+                <h2 class="heading-h2 text-center divider">
+                    <span class="gsap-reveal">Mening xizmatlarim</span>
+                </h2>
+                <span class="gsap-reveal">
+                    <img src="images/divider.png" alt="divider" width="76">
+                </span>
             </div>
 
             <div class="row gutter-v3">
@@ -201,30 +213,34 @@
                         <div class="wrap-icon mb-3">
                             <img src="images/svg/001-options.svg" alt="Image" width="45">
                         </div>
-                        <h3>Digital <br> Strategy</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. </p>
+                        <h3>Raqamli <br> Strategiya</h3>
+                        <p>Biznesingizni onlayn rivojlantirish uchun samarali strategiyalar ishlab chiqaman —
+                            maqsadli auditoriyangizni aniqlash, brendni mustahkamlash va marketing yo‘nalishlarini
+                            belgilayman.</p>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="feature-v1" data-aos="fade-up" data-aos-delay="100">
                         <div class="wrap-icon mb-3">
                             <img src="images/svg/002-chat.svg" alt="Icon" width="45">
                         </div>
-                        <h3>Web <br> Design</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. </p>
+                        <h3>Veb <br> Dizayn</h3>
+                        <p>Foydalanuvchi uchun qulay, zamonaviy va estetik jihatdan jozibador sayt dizaynlarini
+                            yarataman. Har bir loyiha — noyob yondashuv bilan.</p>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="feature-v1" data-aos="fade-up" data-aos-delay="200">
                         <div class="wrap-icon mb-3">
                             <img src="images/svg/003-contact-book.svg" alt="Image" class="img-fluid"
                                 width="45">
                         </div>
-                        <h3>User <br> Experience</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. </p>
+                        <h3>Foydalanuvchi <br> Tajribasi</h3>
+                        <p>Har bir sayt yoki ilova foydalanuvchi uchun qulay bo‘lishi kerak — shu sababli UX (User
+                            Experience)
+                            dizaynini chuqur tahlil asosida yarataman.</p>
                     </div>
                 </div>
 
@@ -233,40 +249,42 @@
                         <div class="wrap-icon mb-3">
                             <img src="images/svg/004-percentage.svg" alt="Image" width="45">
                         </div>
-                        <h3>Web <br> Development</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. </p>
+                        <h3>Veb <br> Dasturlash</h3>
+                        <p>PHP, Laravel, MySQL, HTML, CSS va JavaScript texnologiyalari yordamida tezkor, xavfsiz
+                            va funksional veb-ilovalar ishlab chiqaman.</p>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="feature-v1" data-aos="fade-up" data-aos-delay="100">
                         <div class="wrap-icon mb-3">
                             <img src="images/svg/006-goal.svg" alt="Image" width="45">
                         </div>
-                        <h3>WordPress <br> Solutions</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. </p>
+                        <h3>WordPress <br> Yechimlar</h3>
+                        <p>WordPress asosida saytlar yaratish, sozlash va optimallashtirish bo‘yicha professional
+                            xizmatlar — blog, korporativ yoki e-commerce loyihalar uchun.</p>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="feature-v1" data-aos="fade-up" data-aos-delay="200">
                         <div class="wrap-icon mb-3">
                             <img src="images/svg/005-line-chart.svg" alt="Image" width="45">
                         </div>
-                        <h3>Mobile <br> Applications</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. </p>
+                        <h3>Mobil <br> Ilovalar</h3>
+                        <p>Android va iOS platformalari uchun oddiydan murakkabgacha bo‘lgan mobil ilovalar
+                            ishlab chiqaman — foydalanuvchi qulayligi va tezlik ustuvor.</p>
                     </div>
                 </div>
-
             </div>
         </div>
+
     </div>
 
     <div class="unslate_co--section section-counter" id="skills-section">
         <div class="container">
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Skills</span></h2>
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Mening mahoratlarim</span></h2>
                 <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
             </div>
 
@@ -275,16 +293,16 @@
                 <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
                     <div class="counter-v1 text-center">
                         <span class="number-wrap">
-                            <span class="number number-counter" data-number="90">0</span>
+                            <span class="number number-counter" data-number="95">0</span>
                             <span class="append-text">%</span>
                         </span>
-                        <span class="counter-label">WordPress</span>
+                        <span class="counter-label">W3school PHP</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="counter-v1 text-center">
                         <span class="number-wrap">
-                            <span class="number number-counter" data-number="99">0</span>
+                            <span class="number number-counter" data-number="90">0</span>
                             <span class="append-text">%</span>
                         </span>
                         <span class="counter-label">HTML/CSS</span>
@@ -296,7 +314,7 @@
                             <span class="number number-counter" data-number="95">0</span>
                             <span class="append-text">%</span>
                         </span>
-                        <span class="counter-label">jQuery</span>
+                        <span class="counter-label">Laravel</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
@@ -305,7 +323,7 @@
                             <span class="number number-counter" data-number="95">0</span>
                             <span class="append-text">%</span>
                         </span>
-                        <span class="counter-label">Design</span>
+                        <span class="counter-label">SQL</span>
                     </div>
                 </div>
             </div>
@@ -316,7 +334,7 @@
     <div class="unslate_co--section" id="testimonial-section">
         <div class="container">
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Happy Clients</span>
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Iqtiboslar</span>
                 </h2>
                 <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
             </div>
@@ -350,7 +368,7 @@
     <div class="unslate_co--section" id="journal-section">
         <div class="container">
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Journal</span></h2>
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Mening postlarim</span></h2>
                 <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
             </div>
 
@@ -396,7 +414,7 @@
     <div class="unslate_co--section" id="contact-section">
         <div class="container">
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Get In Touch</span></h2>
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Taklif va savollar uchun</span></h2>
                 <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
             </div>
 
@@ -410,7 +428,7 @@
                         <div class="form-group row mb-0">
 
                             <div class="col-lg-12 form-group gsap-reveal">
-                                <label for="message">Write your message...</label>
+                                <label for="message">Xabaringizni yozing...</label>
                                 <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
                             </div>
                         </div>
@@ -424,7 +442,7 @@
                     </form>
                     <div id="form-message-warning" class="mt-4"></div>
                     <div id="form-message-success">
-                        Your message was sent, thank you!
+                        Xabaringiz yuborildi!
                     </div>
 
                 </div>
@@ -433,15 +451,15 @@
                     <div class="contact-info-v1">
                         <div class="gsap-reveal d-block">
                             <span class="d-block contact-info-label">Email</span>
-                            <a href="#" class="contact-info-val">info@yourdomain.com</a>
+                            <a href="#" class="contact-info-val">husniddin13124041@gmail.com</a>
                         </div>
                         <div class="gsap-reveal d-block">
-                            <span class="d-block contact-info-label">Phone</span>
-                            <a href="#" class="contact-info-val">+12 345 6789 012</a>
+                            <span class="d-block contact-info-label">Telefon</span>
+                            <a href="#" class="contact-info-val">+998 77 025 26 77</a>
                         </div>
                         <div class="gsap-reveal d-block">
-                            <span class="d-block contact-info-label">Address</span>
-                            <address class="contact-info-val">273 South Riverview Rd. <br> New York, NY 10011
+                            <span class="d-block contact-info-label">Manzil</span>
+                            <address class="contact-info-val">Beruniy k. <br> Samarqand sh, Samarqand v.
                             </address>
                         </div>
                     </div>

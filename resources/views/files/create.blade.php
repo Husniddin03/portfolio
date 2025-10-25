@@ -25,7 +25,7 @@
 
         <div class="mb-3">
             <label class="form-label">YouTube iframe</label>
-            <input name="url" class="form-control" type="text" placeholder="<iframe ...>">
+            <input name="url" class="form-control" type="text" placeholder="YouTube url ...">
         </div>
 
         <button type="submit" class="btn btn-primary">Saqlash</button>
