@@ -114,3 +114,58 @@
     </div>
 
 </x-user>
+
+
+
+<style>
+    pre {
+        position: relative;
+        background: #1e1e1e;
+        color: #fff;
+        border-radius: 10px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+    }
+
+    /* Copy tugmasi */
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #0c0f13;
+        color: white;
+        border: none;
+        padding: 3px 5px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        opacity: 0.8;
+        transition: 0.2s;
+    }
+
+    .copy-btn:hover {
+        opacity: 1;
+        background: #2c343d;
+    }
+</style>
+
+<script>
+    // Har bir code block uchun copy tugmasi qo‘shamiz
+    document.querySelectorAll('pre code').forEach(block => {
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.textContent = 'Copy';
+        block.parentNode.appendChild(button);
+
+        button.addEventListener('click', async () => {
+            const text = block.innerText;
+            try {
+                await navigator.clipboard.writeText(text);
+                button.textContent = 'Copied!';
+                setTimeout(() => button.textContent = 'Copy', 1500);
+            } catch (err) {
+                console.error('Nusxalashda xatolik:', err);
+            }
+        });
+    });
+</script>

@@ -46,14 +46,14 @@
     </form>
 
     @php
-    $copy = '<pre><code class="language-php">
+        $copy = '<pre><code class="language-php">
     &lt;?php
 
     ?&gt;
-</code></pre>'
-@endphp
-<pre>
-{{$copy}}
+</code></pre>';
+    @endphp
+    <pre>
+{{ $copy }}
 </pre>
 
 </x-blog>
