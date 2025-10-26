@@ -77,7 +77,7 @@
                         </div>
                     @elseif($file->type == 'video')
                         <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                            <a href="https://www.youtube.com/watch?v=mwtbEGNABWU"
+                            <a href="{{ asset('storage/' . $file->url) }}"
                                 class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery"
                                 data-caption="{{ $file->title }}">
                                 <div class="overlay">
@@ -414,7 +414,8 @@
     <div class="unslate_co--section" id="contact-section">
         <div class="container">
             <div class="section-heading-wrap text-center mb-5">
-                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Taklif va savollar uchun</span></h2>
+                <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Taklif va savollar uchun</span>
+                </h2>
                 <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
             </div>
 

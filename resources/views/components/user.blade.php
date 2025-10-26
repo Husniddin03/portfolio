@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vendor/jquery.fancybox.min.css') }}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -81,9 +82,11 @@
                                         @endauth
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('welcome') }}#portfolio-section" class="nav-link">Portfolio</a></li>
+                                <li><a href="{{ route('welcome') }}#portfolio-section" class="nav-link">Portfolio</a>
+                                </li>
                                 <li><a href="{{ route('welcome') }}#about-section" class="nav-link">Haqimda</a></li>
-                                <li><a href="{{ route('welcome') }}#services-section" class="nav-link">Xizmatlar</a></li>
+                                <li><a href="{{ route('welcome') }}#services-section" class="nav-link">Xizmatlar</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="site-logo pos-absolute">
@@ -91,8 +94,10 @@
                         </div>
                         <div class="col-md-5 text-right text-lg-left">
                             <ul class="site-nav-ul js-clone-nav text-left d-none d-lg-inline-block">
-                                <li><a href="{{ route('welcome') }}#skills-section" class="nav-link">Mahoratlar</a></li>
-                                <li><a href="{{ route('welcome') }}#testimonial-section" class="nav-link">Iqtiboslar</a></li>
+                                <li><a href="{{ route('welcome') }}#skills-section" class="nav-link">Mahoratlar</a>
+                                </li>
+                                <li><a href="{{ route('welcome') }}#testimonial-section"
+                                        class="nav-link">Iqtiboslar</a></li>
                                 <li><a href="{{ route('welcome') }}#journal-section" class="nav-link">Postlar</a></li>
                                 <li><a href="{{ route('welcome') }}#contact-section" class="nav-link">Kontact</a></li>
                             </ul>
@@ -121,18 +126,18 @@
                                 <li><a href="https://www.youtube.com/@Husniddin.Gafforov">YouTube</a></li>
                                 <li><a href="mailto:husniddin13124041@gmail.com">Email</a></li>
 
-                            <p class="site-copyright">
+                                <p class="site-copyright">
 
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i
-                                    class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script> All rights reserved | This template is made with <i
+                                        class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                        target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
-                            </p>
+                                </p>
 
                         </div>
                     </div>
@@ -151,7 +156,13 @@
 
         <script src="{{ asset('js/scripts-dist.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
+    </div>
 
+    <!-- Highlight.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
 </body>
 
 </html>

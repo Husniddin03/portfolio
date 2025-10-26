@@ -45,4 +45,15 @@
         <div class="text-end"><button type="submit" class="btn btn-success">Success</button></div>
     </form>
 
+    @php
+    $copy = '<pre><code class="language-php">
+    &lt;?php
+
+    ?&gt;
+</code></pre>'
+@endphp
+<pre>
+{{$copy}}
+</pre>
+
 </x-blog>

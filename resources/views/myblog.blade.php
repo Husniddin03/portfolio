@@ -33,7 +33,7 @@
                 <div class="col-md-7">
                     <h3 class="mb-4">{{ $post->title }}</h3>
                     @foreach ($post->contents as $content)
-                        <p>{!! $content->content !!}</p>
+                        <p id="editor">{!! $content->content !!}</p>
                         @foreach ($content->mediaFiles as $media)
                             @if ($media->type == 'image')
                                 <p>
@@ -71,7 +71,7 @@
 
 
                     <div class="pt-5">
-                        <h3 class="mb-5">{{$post->comments->count()}} Izohlar</h3>
+                        <h3 class="mb-5">{{ $post->comments->count() }} Izohlar</h3>
                         <ul class="comment-list">
                             @foreach ($post->comments->reverse() as $comment)
                                 <li class="comment">
@@ -79,9 +79,9 @@
                                         <img src="{{ asset('images/person_woman_2.jpg') }}" alt="Image placeholder">
                                     </div>
                                     <div class="comment-body">
-                                        <h3>{{$comment->user->name}}</h3>
+                                        <h3>{{ $comment->user->name }}</h3>
                                         <div class="meta">{{ $comment->created_at->diffForHumans() }}</div>
-                                        <p>{{$comment->message}}</p>
+                                        <p>{{ $comment->message }}</p>
                                     </div>
                                 </li>
                             @endforeach
@@ -90,7 +90,7 @@
 
                         <div class="comment-form-wrap pt-5">
                             <h3 class="mb-5">Izoh qoldiring</h3>
-                            <form action="{{route('addComment', $post->id)}}" method="post" class="">
+                            <form action="{{ route('addComment', $post->id) }}" method="post" class="">
                                 @csrf
 
                                 <div class="form-group">
@@ -98,7 +98,8 @@
                                     <textarea name="message" id="message" cols="30" rows="5" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" value="Post Comment" class="btn btn-primary btn-md">Izohni yuborish</button>
+                                    <button type="submit" value="Post Comment" class="btn btn-primary btn-md">Izohni
+                                        yuborish</button>
                                 </div>
 
                             </form>
