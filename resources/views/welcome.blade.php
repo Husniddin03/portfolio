@@ -39,17 +39,6 @@
 
                 <div class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
                     <h2 class="mr-auto heading-h2"><span class="gsap-reveal">Portfolio</span></h2>
-
-                    {{-- <a href="#" class="text-white js-filter d-inline-block d-lg-none">Filter</a>
-
-                    <div class="filter-wrap">
-                        <div class="filter ml-auto" id="filters">
-                            <a href="#" class="active" data-filter="*">All</a>
-                            <a href="#" data-filter=".web">Web</a>
-                            <a href="#" data-filter=".branding">Branding</a>
-                            <a href="#" data-filter=".illustration">Illustration</a>
-                            <a href="#" data-filter=".packaging">Packaging</a>
-                        </div> --}}
                 </div>
             </div>
 
@@ -77,7 +66,7 @@
                         </div>
                     @elseif($file->type == 'video')
                         <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-                            <a href="{{ asset('storage/' . $file->url) }}"
+                            <a href="{{ asset('storage/' . $file->url) }} "
                                 class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery"
                                 data-caption="{{ $file->title }}">
                                 <div class="overlay">
@@ -293,10 +282,10 @@
                 <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
                     <div class="counter-v1 text-center">
                         <span class="number-wrap">
-                            <span class="number number-counter" data-number="95">0</span>
+                            <span class="number number-counter" data-number="98">0</span>
                             <span class="append-text">%</span>
                         </span>
-                        <span class="counter-label">W3school PHP</span>
+                        <span class="counter-label">PHP</span>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -326,6 +315,24 @@
                         <span class="counter-label">SQL</span>
                     </div>
                 </div>
+                <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="counter-v1 text-center">
+                        <span class="number-wrap">
+                            <span class="number number-counter" data-number="70">0</span>
+                            <span class="append-text">%</span>
+                        </span>
+                        <span class="counter-label">Python</span>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3 mt-5" data-aos="fade-up" data-aos-delay="300">
+                    <div class="counter-v1 text-center">
+                        <span class="number-wrap">
+                            <span class="number number-counter" data-number="50">0</span>
+                            <span class="append-text">%</span>
+                        </span>
+                        <span class="counter-label">C++</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -341,7 +348,7 @@
         </div>
 
         <div class="owl-carousel testimonial-slider" data-aos="fade-up">
-            @foreach ($quotes as $quote)
+            @foreach ($quotes->reverse() as $quote)
                 <div>
                     <div class="testimonial-v1">
                         <div class="testimonial-inner-bg">
@@ -376,7 +383,7 @@
             <div class="row gutter-v4 align-items-stretch">
                 @foreach ($posts as $post)
                     <div class="col-sm-6 col-md-6 col-lg-4 blog-post-entry" data-aos="fade-up" data-aos-delay="100">
-                        <a href="{{ route('myblog', $post->id) }}" class="grid-item blog-item w-100 h-100">
+                        <a href="{{ route('post', $post->title) }}" class="grid-item blog-item w-100 h-100">
                             <div class="overlay">
                                 <div class="portfolio-item-content">
                                     <h3>{{ $post->title }}</h3>
@@ -385,22 +392,39 @@
                                     </p>
                                 </div>
                             </div>
+                            @php
+                                $hasMedia = false;
+                            @endphp
+
                             @foreach ($post->contents as $content)
-                                @foreach ($content->mediaFiles as $media)
-                                    @if ($media->type == 'image')
-                                        <img src="{{ asset('storage/' . $media->url) }}" class="lazyload"
-                                            alt="Image" />
-                                    @elseif($media->type == 'url')
-                                        @php
-                                            $segments = explode('/', $media->url);
-                                            $lastSegment = end($segments);
-                                            $videoId = explode('?', $lastSegment)[0];
-                                        @endphp
-                                        <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
-                                            alt="Video Thumbnail" />
-                                    @endif
-                                @endforeach
+                                @if (!$hasMedia)
+                                    @foreach ($content->mediaFiles as $media)
+                                        @php $hasMedia = true; @endphp
+
+                                        @if ($media->type == 'image')
+                                            <img src="{{ asset('storage/' . $media->url) }}" class="lazyload"
+                                                alt="Image" />
+                                            @break
+
+                                        @elseif ($media->type == 'url')
+                                            @php
+                                                $segments = explode('/', $media->url);
+                                                $lastSegment = end($segments);
+                                                $videoId = explode('?', $lastSegment)[0];
+                                            @endphp
+                                            <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
+                                                alt="Video Thumbnail" />
+                                            @break
+                                        @endif
+                                    @endforeach
+                                @endif
                             @endforeach
+
+                            @if (!$hasMedia)
+                                <img src="{{ asset('images/defaultepost.png') }}" class="lazyload"
+                                    alt="Default Image" />
+                            @endif
+
                         </a>
                     </div>
                 @endforeach

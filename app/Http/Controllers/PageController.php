@@ -19,16 +19,18 @@ class PageController extends Controller
         $posts = Post::all();
         return view('welcome', compact('files', 'quotes', 'posts'));
     }
-    public function myblog($id)
+
+
+    public function post($title)
     {
-        $post = Post::find($id);
+        $post = Post::where('title', $title)->first();
         $post->increment('views');
-        $otherPosts = Post::where('id', '!=', $id)
+        $otherPosts = Post::where('id', '!=', $post->id)
             ->orderBy('id', 'desc')
             ->limit(2)
             ->get();
 
-        return view('myblog', compact('post', 'otherPosts'));
+        return view('post', compact('post', 'otherPosts'));
     }
 
     public function addComment(Request $request, $id)

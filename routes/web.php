@@ -5,10 +5,14 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuoteController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
-Route::get('myblog/{id}', [PageController::class, 'myblog'])->name('myblog');
+foreach(Post::all('title') as $title){
+    Route::get('post/{name}', [PageController::class, 'post'])->name('post');
+}
+
 Route::middleware(['auth'])->group(function () {
 
     // Hamma login foydalanuvchilar kirishi mumkin bo'lgan yo'llar

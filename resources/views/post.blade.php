@@ -27,26 +27,34 @@
     </div>
     <!-- END .cover-v1 -->
 
+
+    <style>
+
+    </style>
+
+
     <div class="unslate_co--section" id="blog-single-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-7">
+                <div class="col-md-7 post-father">
                     <h3 class="mb-4">{{ $post->title }}</h3>
                     @foreach ($post->contents as $content)
-                        <p id="editor">{!! $content->content !!}</p>
+                        <p id="editor"> {!! $content->content !!}</p>
                         @foreach ($content->mediaFiles as $media)
                             @if ($media->type == 'image')
-                                <p>
-                                    <img src="{{ asset('storage/' . $media->url) }}" alt="Image" class="img-fluid">
-                                </p>
+                                <a href="{{ asset('storage/' . $media->url) }} "
+                                    class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery">
+                                    <img src="{{ asset('storage/' . $media->url) }}" class="lazyload img-fluid"
+                                        alt="Images" />
+                                </a>
                             @elseif($media->type == 'url')
                                 @php
                                     $segments = explode('/', $media->url);
                                     $lastSegment = end($segments);
                                     $videoId = explode('?', $lastSegment)[0];
                                 @endphp
-                                <a href="{{ $media->url }}">
-                                    <p>To'liq tomosho qiling</p>
+                                <a href="{{ $media->url }}" class="portfolio-item isotope-item gsap-reveal-img"
+                                    data-fancybox="gallery">
                                     <img class="img-fluid"
                                         src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
                                         alt="Video Thumbnail" />
@@ -59,14 +67,18 @@
                             &bullet; {{ $post->views }} marta o'qilgan</p>
                     </div>
                     <div class="post-single-navigation d-flex align-items-stretch">
-                        <a href="{{ route('myblog', $otherPosts[1]->id) }}" class="mr-auto w-50 pr-4">
-                            <span class="d-block">Oldingi post</span>
-                            {{ $otherPosts[1]->title }}
-                        </a>
-                        <a href="{{ route('myblog', $otherPosts[0]->id) }}" class="ml-auto w-50 text-right pl-4">
-                            <span class="d-block">Keyingi post</span>
-                            {{ $otherPosts[0]->title }}
-                        </a>
+                        @if (isset($otherPosts[1]))
+                            <a href="{{ route('post', $otherPosts[1]->title) }}" class="mr-auto w-50 pr-4">
+                                <span class="d-block">Oldingi post</span>
+                                {{ $otherPosts[1]->title }}
+                            </a>
+                        @endif
+                        @if (isset($otherPosts[0]))
+                            <a href="{{ route('post', $otherPosts[0]->title) }}" class="ml-auto w-50 text-right pl-4">
+                                <span class="d-block">Keyingi post</span>
+                                {{ $otherPosts[0]->title }}
+                            </a>
+                        @endif
                     </div>
 
 
@@ -124,8 +136,19 @@
         color: #fff;
         border-radius: 10px;
         overflow-x: auto;
-        margin-bottom: 20px;
+        border: 1px solid blue;
     }
+
+    .post-father a {
+        margin: 5px;
+    }
+
+    /* #editor{
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: #fff;
+        border: 1px solid rgb(66, 64, 64);
+    } */
 
     /* Copy tugmasi */
     .copy-btn {

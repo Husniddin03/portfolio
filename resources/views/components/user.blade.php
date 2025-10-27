@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="{{ asset('css/vendor/jquery.fancybox.min.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
     <!-- Theme Style -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -70,12 +71,11 @@
                                             </li>
                                         @endguest
                                         @auth
-
                                             <li>
                                                 <a>
                                                     <form action="{{ route('logout') }}" method="post">
                                                         @csrf
-                                                        <button type="submit">Chiqish</button>
+                                                        <button class="btn p-0 text-danger" type="submit">Chiqish</button>
                                                     </form>
                                                 </a>
                                             </li>
